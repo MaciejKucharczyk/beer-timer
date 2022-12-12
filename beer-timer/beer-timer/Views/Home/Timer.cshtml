@@ -16,6 +16,24 @@
         var Interval;
         var wynik;
 
+        document.addEventListener('keyup', (event) => {
+            const keyName = event.key;
+            if (keyName == ' ') {
+                if (is_running == 0) {
+                    tens = "00";
+                    seconds = "00";
+                    appendTens.innerHTML = tens;
+                    appendSeconds.innerHTML = seconds;
+                    Interval = setInterval(startTimer, 10);
+                    is_running = 1;
+                }
+                if (is_running == 1 && tens > 0) {
+                    clearInterval(Interval);
+                    is_running = 0;
+                }
+            }
+        });
+
         buttonStart.onclick = function () {
             
             clearInterval(Interval);
