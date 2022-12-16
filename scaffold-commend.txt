@@ -1,0 +1,1 @@
+Scaffold-DbContext "Data Source=LAPTOP-RBTL4DHN\HUBERTSQL;Initial Catalog=beer-timer;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Tables Ranking -Context BeerContext

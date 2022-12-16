@@ -1,0 +1,38 @@
+﻿@model IEnumerable<beer_timer.Models.Ranking>
+
+    @{
+        ViewData["Title"] = "Ranking";
+    }
+
+    <h1>Lista Rankingowa</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>UserId</th>
+            <th>Seconds</th>
+            <th>Tens</th>
+            <th>Technique</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ranking in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.UserNameId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Sec)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Tens)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Technique)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
