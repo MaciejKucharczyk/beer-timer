@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace beer_timer.Data.Migrations
+namespace beer_timer.Migrations
 {
     public partial class Initial : Migration
     {

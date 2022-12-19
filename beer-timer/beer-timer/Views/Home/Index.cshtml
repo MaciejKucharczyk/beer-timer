@@ -1,8 +1,32 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Beer Timer";
+}
+<style>
+body {
+    background-color: wheat;
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+.display-4 {
+    font-family: monospace;
+    color: red;
+}
+
+.display-8 {
+    color: darkslategrey;
+}
+</style>
+<head>
+    <script src="~/animations/data.js"></script>
+</head>
+
+<body>
+    <div class="text-center">
+        <h1 class="display-4"> Piwny timer </h1>
+        <h2 class="display-8"> Jeżeli naprawdę kochasz piwo, pokaż jak szybko je wypijesz!</h2>
+        <p src="~/animations/data.json"></p>
+    </div>
+    <div>
+        <p src="~/animations/data.json"></p>
+        <lottie-player src="~/animations/data.js" background="transparent" speed="1" style="width: 300px; height: 300px;" loop controls autoplay> </lottie-player>
+    </div>
+</body>

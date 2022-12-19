@@ -13,13 +13,16 @@
         var buttonStart = document.getElementById('button-start');
         var buttonStop = document.getElementById('button-stop');
         var buttonReset = document.getElementById('button-reset');
+        var is_running = 0;
         var Interval;
         var wynik;
 
-        document.addEventListener('keyup', (event) => {
+       /* document.onkeyup( function(e) => {
             const keyName = event.key;
-            if (keyName == ' ') {
+            if (e.keyCode == 32) {
                 if (is_running == 0) {
+                    buttonStart.click();
+                    alter("Dupa");
                     tens = "00";
                     seconds = "00";
                     appendTens.innerHTML = tens;
@@ -28,11 +31,16 @@
                     is_running = 1;
                 }
                 if (is_running == 1 && tens > 0) {
+                    alter("Dupsko");
                     clearInterval(Interval);
                     is_running = 0;
                 }
             }
         });
+
+        */
+
+
 
         buttonStart.onclick = function () {
             
