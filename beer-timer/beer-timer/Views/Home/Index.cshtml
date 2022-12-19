@@ -15,18 +15,24 @@ body {
     color: darkslategrey;
 }
 </style>
-<head>
-    <script src="~/animations/data.js"></script>
-</head>
+
+<script>
+    var animation = bodymovin.loadAnimation({
+        container: document.getElementById('animContainer'),
+        renderer: 'svg',
+        loop: true,
+        autoplay: true,
+        path: 'https://assets10.lottiefiles.com/packages/lf20_gB20zF.json' // link to lottie
+    })
+</script>
+
+<head></head>
 
 <body>
     <div class="text-center">
         <h1 class="display-4"> Piwny timer </h1>
         <h2 class="display-8"> Jeżeli naprawdę kochasz piwo, pokaż jak szybko je wypijesz!</h2>
-        <p src="~/animations/data.json"></p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bodymovin/5.10.0/lottie.min.js"></script>
     </div>
-    <div>
-        <p src="~/animations/data.json"></p>
-        <lottie-player src="~/animations/data.js" background="transparent" speed="1" style="width: 300px; height: 300px;" loop controls autoplay> </lottie-player>
-    </div>
+    
 </body>
