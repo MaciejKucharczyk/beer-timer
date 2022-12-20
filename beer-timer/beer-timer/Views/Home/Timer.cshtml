@@ -1,0 +1,128 @@
+﻿@model beer_timer.Models.Ranking;
+@{
+    ViewData["Title"] = "Timers";
+}
+<script>
+    https://assets2.lottiefiles.com/packages/lf20_dujyqkem.json
+
+    window.onload = function () {
+        var seconds = 00;
+        var tens = 00;
+        var appendTens = document.getElementById("tens")
+        var appendSeconds = document.getElementById("seconds")
+        var buttonStart = document.getElementById('button-start');
+        var buttonStop = document.getElementById('button-stop');
+        var buttonReset = document.getElementById('button-reset');
+        var Interval;
+        var wynik;
+        document.addEventListener('keyup', (event) => {
+            const keyName = event.key;
+            if (keyName == ' ') {
+                if (is_running == 0) {
+                    tens = "00";
+                    seconds = "00";
+                    appendTens.innerHTML = tens;
+                    appendSeconds.innerHTML = seconds;
+                    Interval = setInterval(startTimer, 10);
+                    is_running = 1;
+                }
+                if (is_running == 1 && tens > 0) {
+                    clearInterval(Interval);
+                    is_running = 0;
+                }
+            }
+        });
+        buttonStart.onclick = function () {
+
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 10);
+        }
+        buttonStop.onclick = function () {
+            clearInterval(Interval);
+        }
+        buttonReset.onclick = function () {
+            clearInterval(Interval);
+            tens = "00";
+            seconds = "00";
+            appendTens.innerHTML = tens;
+            appendSeconds.innerHTML = seconds;
+        }
+        function startTimer() {
+            tens++;
+            if (tens <= 9) {
+                appendTens.innerHTML = "0" + tens;
+            }
+            if (tens > 9) {
+                appendTens.innerHTML = tens;
+            }
+            if (tens > 99) {
+                console.log("seconds");
+                seconds++;
+                appendSeconds.innerHTML = "0" + seconds;
+                tens = 0;
+                appendTens.innerHTML = "0" + 0;
+            }
+            if (seconds > 9) {
+                appendSeconds.innerHTML = seconds;
+            }
+
+            document.getElementById("wynik").innerHTML = seconds+ " : "+ tens;
+
+        }
+    }
+</script>
+
+<div class="wrapper">
+	<h1>Stopwatch</h1>
+	<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+    <button id="button-start" class="btn btn-outline-warning">Start</button>
+    <button id="button-stop" class="btn btn-outline-warning">Stop</button>
+    <button id="button-reset" class="btn btn-outline-warning">Reset</button><br />
+    <span>Twój wynik to:</span>
+    <p id="wynik"></p>
+
+</div>
+
+<div id="cheers">
+    <h1>Napijmy się!!!</h1>
+    <br />
+    <iframe src="https://embed.lottiefiles.com/animation/91044"></iframe>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Timer">
+            <br />
+            <div class="form-group">
+                <label asp-for="Sec" class="control-label">Sekundy</label>
+                <input asp-for="Sec" value="seconds" />
+                <span asp-validation-for="Sec" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Tens" class="control-label">Setne Sekundy</label>
+                <input asp-for="Tens" value="tens" />
+                <span asp-validation-for="Tens" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="UserNameId" class="control-label">Username ID
+                </label>
+                <input asp-for="UserNameId" class="form-control" />
+                <span asp-validation-for="UserNameId" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <label asp-for="Technique" class="control-label">Technika</label>
+                <input asp-for="Technique" class="form-control" />
+                <span asp-validation-for="Technique" class="text-danger"></span>
+            </div>
+            <br />
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj wynik!" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,43 @@
+﻿@model IEnumerable<beer_timer.Models.Ranking>
+
+    @{
+        ViewData["Title"] = "Ranking";
+    }
+
+    <h1>Lista Rankingowa</h1>
+<div class="gif_bottle">
+    <iframe src="https://embed.lottiefiles.com/animation/48952"></iframe>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>UsernameId</th>
+            <th>Seconds</th>
+            <th>Tens</th>
+            <th>Technique</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ranking in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.UserNameId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Sec)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Tens)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => ranking.Technique)
+                </td>
+                <td></td>
+            </tr>
+        }
+    </tbody>
+</table>

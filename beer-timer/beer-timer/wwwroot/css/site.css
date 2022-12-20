@@ -1,0 +1,98 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+background: url("../img/beerBack.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+h1, h2, h3 {
+    font-family: Stencil Std, fantasy;
+    font-size:50px;
+}
+
+
+.gif_bottle{
+    width:100px;
+    height:100px;
+    position:inherit;
+    float:right;
+    text-align:right;
+    margin-top:-60px;
+    margin-right:-55px;
+}
+
+#layoutBody {
+    background-color: #F28705;
+}
+
+#cheers {
+    width: 25vw;
+    height: 300px;
+    position: relative;
+}
+
+#cheers h1 {
+    color: #000000;
+    margin-top:-10px;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 70px;
+    font-weight: 100;
+    line-height: 50px;
+    letter-spacing: 1px;
+    padding: 10px 0 40px;
+    border-bottom: double #555;
+}
+#cheers iframe {
+    width:max-content;
+
+}
+.wrapper {
+    float: right;
+    position: inherit;
+    margin-right: -10vw;
+    width: 40vw;
+    height: 20vh;
+}
+.wrapper h1{
+    text-align:center;
+}
+.wrapper p, span {
+        font-family: Stencil Std, fantasy;
+        font-size: 40px;
+}
+
+#button-start, #button-stop, #button-reset{
+    font-size:35px;
+    color:black;
+    border-color:black;
+}
+
+.row {
+    margin-bottom: 60px;
+    background: rgba(242,183,5,0.7);
+    border-radius:50px;
+    width: 35vw;
+    height:480px;
+}
+
+.table {
+    margin-bottom: 60px;
+    background: rgba(242,183,5,0.85);
+    border-radius: 20px;
+}
