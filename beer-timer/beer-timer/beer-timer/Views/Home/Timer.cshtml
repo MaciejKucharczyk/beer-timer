@@ -1,0 +1,123 @@
+﻿@model beer_timer.Models.Ranking;
+@{
+    ViewData["Title"] = "Timers";
+}
+
+<script>
+    window.onload = function () {
+        var seconds = 00;
+        var tens = 00;
+        var appendTens = document.getElementById("tens")
+        var appendSeconds = document.getElementById("seconds")
+        var buttonStart = document.getElementById('button-start');
+        var buttonStop = document.getElementById('button-stop');
+        var buttonReset = document.getElementById('button-reset');
+        var is_running = 0;
+        var Interval;
+        var wynik;
+        /* document.onkeyup( function(e) => {
+             const keyName = event.key;
+             if (e.keyCode == 32) {
+                 if (is_running == 0) {
+                     buttonStart.click();
+                     alter("Dupa");
+                     tens = "00";
+                     seconds = "00";
+                     appendTens.innerHTML = tens;
+                     appendSeconds.innerHTML = seconds;
+                     Interval = setInterval(startTimer, 10);
+                     is_running = 1;
+                 }
+                 if (is_running == 1 && tens > 0) {
+                     alter("Dupsko");
+                     clearInterval(Interval);
+                     is_running = 0;
+                 }
+             }
+         });
+         */
+        buttonStart.onclick = function () {
+
+            clearInterval(Interval);
+            Interval = setInterval(startTimer, 10);
+        }
+        buttonStop.onclick = function () {
+            clearInterval(Interval);
+        }
+        buttonReset.onclick = function () {
+            clearInterval(Interval);
+            tens = "00";
+            seconds = "00";
+            appendTens.innerHTML = tens;
+            appendSeconds.innerHTML = seconds;
+        }
+        function startTimer() {
+            tens++;
+            if (tens <= 9) {
+                appendTens.innerHTML = "0" + tens;
+            }
+            if (tens > 9) {
+                appendTens.innerHTML = tens;
+            }
+            if (tens > 99) {
+                console.log("seconds");
+                seconds++;
+                appendSeconds.innerHTML = "0" + seconds;
+                tens = 0;
+                appendTens.innerHTML = "0" + 0;
+            }
+            if (seconds > 9) {
+                appendSeconds.innerHTML = seconds;
+            }
+
+            document.getElementById("wynik").innerHTML = "Twój wynik to: " + seconds+" "+tens;
+        }
+    }
+</script>
+
+<div class="wrapper">
+	<h1>Stopwatch</h1>
+	<p><span id="seconds">00</span>:<span id="tens">00</span></p>
+	<button id="button-start">Start</button>
+	<button id="button-stop">Stop</button>
+	<button id="button-reset">Reset</button>
+    <p id="wynik"></p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Timer">
+            
+            <div class="form-group">
+                <label asp-for="Sec" class="control-label">Sekundy</label>
+                <input asp-for="Sec" value="seconds" />
+                <span asp-validation-for="Sec" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Tens" class="control-label">Setne Sekundy</label>
+                <input asp-for="Tens" value="tens" />
+                <span asp-validation-for="Tens" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="UserNameId" class="control-label">Username ID
+                </label>
+                <input asp-for="UserNameId" class="form-control" />
+                <span asp-validation-for="UserNameId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="Technique" class="control-label">Technika</label>
+                <input asp-for="Technique" class="form-control" />
+                <span asp-validation-for="Technique" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <input type="submit" value="Dodaj wynik!" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
