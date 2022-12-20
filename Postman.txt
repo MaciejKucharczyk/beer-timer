@@ -1,0 +1,7 @@
+{
+        "id":2,
+        "sec": 42,
+        "tens": 11,
+        "userNameId": "1",
+        "technique": "Lej"
+    }
