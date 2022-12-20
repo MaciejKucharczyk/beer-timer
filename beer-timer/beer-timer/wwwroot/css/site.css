@@ -14,7 +14,7 @@ html {
 }
 
 body {
-background: url("../img/beerBack.png") no-repeat center center fixed;
+    background: url("../img/beerBack.png") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -62,17 +62,37 @@ h1, h2, h3 {
     width:max-content;
 
 }
-.wrapper {
+#wrapper {
+    
     float: right;
     position: inherit;
     margin-right: -10vw;
     width: 40vw;
-    height: 20vh;
+    height: 80vh;
 }
-.wrapper h1{
-    text-align:center;
+
+#wrapper h1 {
+    text-transform: uppercase;
+    background-image: linear-gradient( -225deg, #000000 0%, #3b3b3b 29%, #404040 67%, #363636 100%);
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    background-clip: text;
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 100px;
 }
-.wrapper p, span {
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+#wrapper p, span {
         font-family: Stencil Std, fantasy;
         font-size: 40px;
 }

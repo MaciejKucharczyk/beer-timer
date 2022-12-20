@@ -15,11 +15,17 @@ namespace beer_timer.Controllers
             _context = context;
         }
 
-        public IActionResult RankingView()
+        public async Task<IActionResult> RankingView()
         {
             var rankings = _context.Rankings.ToList();
-            return View(rankings);
+
+            var ranks = from b in _context.Rankings
+                       select b;
+            ranks = ranks.OrderBy(x => x.Sec);
+            return View(await ranks.AsNoTracking().ToListAsync());
         }
+
+
 
         public IActionResult Timer(int id)
         {
