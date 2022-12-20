@@ -7,6 +7,16 @@ namespace beer_timer.Models
         public DataContext(DbContextOptions<DataContext> options)
             : base(options) { }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true).Build();
+                optionsBuilder.UseSqlServer(configuration.GetConnectionString("DefaultConnection"));
+            }
+        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

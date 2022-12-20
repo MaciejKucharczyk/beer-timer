@@ -1,14 +1,19 @@
 using beer_timer.Data;
+using beer_timer.Interfaces;
 using beer_timer.Models;
+using beer_timer.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddTransient<IRankingService, RankingService>();
+
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
+
 
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 

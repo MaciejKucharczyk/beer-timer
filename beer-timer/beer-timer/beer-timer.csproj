@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
-    <Nullable>enable</Nullable>
+    <Nullable>disable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>aspnet-beer_timer-863ED3B6-9225-41D8-8718-D2D7C6F00604</UserSecretsId>
     <RootNamespace>beer_timer</RootNamespace>
