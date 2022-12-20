@@ -17,14 +17,14 @@ namespace beer_timer.Controllers
 
         public IActionResult RankingView()
         {
-            var rankings = _context.Rankings.ToList();
+            var rankings = _context.Rankings.ToList(); // tu wywala jak klikam 'ranking'
             return View(rankings);
         }
 
         public IActionResult Timer(int id)
         {
             var ranking = _context.Rankings
-                .Find(id);
+                .Find(id); // tu wywala jak klikam 'timer'
             ViewBag.ranking = ranking;
             return View();
         }
